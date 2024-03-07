@@ -1,0 +1,66 @@
+*{
+    padding: 0;margin: 0;box-sizing: border-box;
+}
+body{
+    background-image: url(./Assets/bg.jpg);
+    background-size: cover;
+    
+}
+#main-component{
+    height: 100%;
+    display: flex;
+  margin: 5vh 5vw;
+}
+#left{
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 88vh;
+   background-color: #023047;
+    align-items: center;
+    justify-content: center;
+    gap: 10vh;
+    text-align: center;
+}
+#right{
+    align-items: center;
+    width: 50%;
+    background-color: #fefae0;
+}
+#email-pass-div{
+    gap: 2vh;
+    display: flex;
+    flex-direction: column;
+    width: 44%;
+}
+#registration-box{
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input{
+    padding: 1.2vh;
+}
+#checkbox{
+    display: flex;
+    gap: 0.5vw;
+}
+#register-btn{
+    padding: 1vh;
+    width: 20vw;
+    color: white;
+    font-weight: 800;
+    background-color: #ff006e;
+}
+#register-bt:hover{
+    cursor: pointer;
+}
+#experience-range{
+    /* justify-items: center; */
+    align-items: center;
+    display: flex;
+}
