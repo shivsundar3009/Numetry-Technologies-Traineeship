@@ -1,0 +1,97 @@
+*{
+    padding: 0;margin: 0;box-sizing: border-box;
+}
+body{
+    background-image: url(./Assets/bg.jpg);
+    background-size: cover;
+    
+}
+#login-component{
+    flex-direction: row-reverse;
+    height: 100%;
+    display: flex;
+  margin: 5vh 5vw;
+}
+#login-component-left{
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 88vh;
+   background-color: #023047;
+    align-items: center;
+    justify-content: center;
+    gap: 10vh;
+}
+#social-div{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 2vh;
+}
+#social-div button{
+    color: white;
+    font-weight: 800;
+    gap: 3vw;
+    display: flex;
+    align-items: center;
+}
+#tw-btn{
+    background-color: #1da1f2;
+}
+#google-btn{
+    background-color: #dc4a38;
+}
+#fb-btn{
+    background-color: #3b5997;
+}
+#login-component-right{
+    align-items: center;
+    width: 50%;
+    background-color: #fefae0;
+}
+
+#login-main-component{
+    gap: 4vh;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#email-pass-btn-div{
+    gap: 2vh;
+    display: flex;
+    flex-direction: column;
+    width: 44%;
+}
+input{
+    padding: 2vh;
+}
+#email-pass-btn-div button{
+    padding: 2vh;
+}
+#forget-pass-div{
+    display: flex;
+    justify-content: space-between
+}
+#checkbox-div{
+    display: flex;
+}
+button:hover{
+    cursor: pointer;
+}
+.blue-item{
+    color: #308fe9;
+}
+.blue-item:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+#login-btn{
+    color: white;
+    font-weight: 800;
+    background-color: #ff006e;
+}
