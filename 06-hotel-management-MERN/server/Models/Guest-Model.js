@@ -1,10 +1,28 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const guestSchema = new mongoose.Schema({
-    name: String,
-    stayable: Boolean
+  name: {
+    type: String,
+    required: true
+  },
+  checkedIn: {
+    type: Boolean,
+    default: false
+  },
+  checkInTime: {
+    type: Date,
+    default: null
+  },
+  checkOutTime: {
+    type: Date,
+    default: null
+  },
+  stayDuration: {
+    type: Number,
+    default: null
+  }
 });
 
-const Guest = mongoose.model("Guest", guestSchema);
+const Guest = mongoose.model('Guest', guestSchema);
 
 export default Guest;
