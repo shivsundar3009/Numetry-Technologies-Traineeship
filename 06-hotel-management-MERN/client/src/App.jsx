@@ -5,9 +5,10 @@ function App() {
 
   return (
     <>
+
        <Header/>
        <Slider/>
-      <h1 className="text-3xl">HOTEL MANAGEMENT</h1>
+       {/* <h1>MAIN SECTION</h1> */}
     </>
   )
 }
