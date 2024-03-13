@@ -1,17 +1,16 @@
 import express from "express";
 import connectDB from "./Database/db.js";
+import cors from 'cors'
 
 const app = express()
+
+app.use(cors())
 
 connectDB()
 
 app.use(express.json()) 
 
 const PORT = 3000
-
-import userRoute from './routes/user-route.js'
-app.use('/api/v1',userRoute)
-
 
 import entryExitRoutes from './routes/entryExitRoutes.js';
 app.use('/api/v1', entryExitRoutes);

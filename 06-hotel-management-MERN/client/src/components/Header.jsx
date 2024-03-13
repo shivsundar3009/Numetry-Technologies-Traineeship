@@ -133,7 +133,7 @@ function Header() {
                     <div className='flex items-center gap-2'><MdOutlineEmail /> thegrandwelcome@gmail.com</div>
                 </div>
             </div>
-            <nav className='sticky top-0 z-50 bg-gray-200 h-20 flex items-center justify-around'>
+            <nav className='sticky top-0 h-20 flex items-center justify-around'>
                 <div>
                     <img src={img} alt="" className='h-7' />
                 </div>
@@ -141,11 +141,11 @@ function Header() {
                     <NavLink to="/">HOME</NavLink>
                     <NavLink to="/about">ABOUT US</NavLink>
                     <NavLink to="/service">SERVICE</NavLink>
-                    <NavLink to="/room">ROOM</NavLink>
-                    <NavLink to="/booknow">BOOK NOW</NavLink>
-                    <NavLink to="/gallery">GALLERY</NavLink>
-                    <NavLink to="/menu">MENU</NavLink>
-                    <NavLink to="/events">EVENTS</NavLink>
+                    <NavLink to="">ROOM</NavLink>
+                    <NavLink to="/book">BOOK NOW</NavLink>
+                    <NavLink to="">GALLERY</NavLink>
+                    <NavLink to="">MENU</NavLink>
+                    <NavLink to="">EVENTS</NavLink>
                     <NavLink to="/login">LOGIN</NavLink>
                     <NavLink to="/contact">CONTACT US</NavLink>
                 </div>

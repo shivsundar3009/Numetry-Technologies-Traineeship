@@ -1,6 +1,7 @@
 
+import OurServices from "./components/OurServices.jsx"
 import {Header, Slider}  from "./components/index.js"
-function App() {
+function Home() {
 
 
   return (
@@ -8,9 +9,10 @@ function App() {
 
        <Header/>
        <Slider/>
+       <OurServices/>
        {/* <h1>MAIN SECTION</h1> */}
     </>
   )
 }
 
-export default App
+export default Home

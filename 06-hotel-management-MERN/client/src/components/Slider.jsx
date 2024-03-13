@@ -32,7 +32,7 @@ function Slider() {
       {
        
        Images.map((image,index) => (
-        <SwiperSlide><img src={image} key={index} alt="" className='w-full h-screen'/></SwiperSlide>
+        <SwiperSlide key={index}><img src={image} alt="" className='w-full h-screen'/></SwiperSlide>
        ))
       
       }

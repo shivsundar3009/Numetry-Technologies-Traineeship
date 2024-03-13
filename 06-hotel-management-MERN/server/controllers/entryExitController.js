@@ -3,9 +3,30 @@ import Guest from '../models/Guest-Model.js';
 // Controller function to add a new guest
 export const addGuest = async (req, res) => {
   try {
-    const { name } = req.body;
-    const guest = await Guest.create({ name });
+    const { name, email, password } = req.body;
+    const guest = await Guest.create({ name, email, password });
     res.status(201).json(guest);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const guestLogin = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const guest = await Guest.findOne({email:email})
+    
+    if (!guest) {
+      res.send('Guest not found');
+    } else {
+      if (guest.password !== password) {
+        res.send('Invalid password');
+      } else {
+        res.send('Success');
+      }
+    }
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

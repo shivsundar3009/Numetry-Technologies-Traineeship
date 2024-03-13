@@ -5,6 +5,15 @@ const guestSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  email: {
+    type: String,
+    required: true,
+    unique: true // Ensure email is unique
+  },
+  password: {
+    type: String,
+    required: true
+  },
   checkedIn: {
     type: Boolean,
     default: false
@@ -21,7 +30,7 @@ const guestSchema = new mongoose.Schema({
     type: Number,
     default: null
   }
-});
+},{ timestamps: true });
 
 const Guest = mongoose.model('Guest', guestSchema);
 
