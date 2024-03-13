@@ -1,6 +1,6 @@
 
 import OurServices from "./components/OurServices.jsx"
-import {Header, Slider}  from "./components/index.js"
+import {Header, Slider, Footer}  from "./components/index.js"
 function Home() {
 
 
@@ -10,7 +10,9 @@ function Home() {
        <Header/>
        <Slider/>
        <OurServices/>
+       <Footer/>
        {/* <h1>MAIN SECTION</h1> */}
+
     </>
   )
 }
