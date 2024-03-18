@@ -1,9 +1,11 @@
 
+import {Home} from "./components"
+
 function App() {
 
   return (
    <>
-    <h1 className="text-5xl">E-Ticketing Application</h1>
+    <Home/>
    </>
   )
 }
