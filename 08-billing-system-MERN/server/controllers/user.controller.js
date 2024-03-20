@@ -40,7 +40,7 @@ export const Login = async (req, res) => {
       }
   
       // Create JWT token
-      const token = jwt.sign({ userId: user._id, email: user.email }, "ab8d3f7aefc48f4b59e5b9b6e3af1c842d5c5a89a4e4a2e0c396d7a3d046c1fb", { expiresIn: "1h" });
+      const token = jwt.sign({ userId: user._id, email: user.email }, "ab8d3f7aefc48f4b59e5b9b6e3af1c842d5c5a89a4e4a2e0c396d7a3d046c1fb", { expiresIn: "12h" });
   
       res.status(200).json({ token });
     } catch (error) {
