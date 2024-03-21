@@ -1,18 +1,21 @@
 import express from 'express';
-import { addToCart, updateCartItem, removeFromCart, calculateTotalAmount } from '../controllers/cartController.js';
+import { addToCart, removeFromCart, getAllCartItems, calculateTotalAmount, updateCartItem } from '../controllers/cart.controller.js';
 
 const router = express.Router();
 
-// Route to add a product to the cart
+// Add a product to the cart
 router.post('/cart/add', addToCart);
 
-// Route to update quantity of a product in the cart
+// Update quantity of a product in the cart
 router.put('/cart/update/:productId', updateCartItem);
 
-// Route to remove a product from the cart
+// Remove a product from the cart
 router.delete('/cart/remove/:productId', removeFromCart);
 
-// Route to calculate total payable amount with GST
+// Get all items in the cart
+router.get('/cart/items', getAllCartItems);
+
+// Calculate total payable amount with 1.8% GST
 router.get('/cart/total', calculateTotalAmount);
 
 export default router;

@@ -7,13 +7,16 @@ import { IoLocationOutline } from "react-icons/io5"
 import { BsCart4 } from "react-icons/bs"
 import { IoSearch } from "react-icons/io5"
 
+import { Link } from 'react-router-dom'
+
 function Header() {
     return (
         <>
             <div className='bg-[#131921] h-16 text-white flex items-center gap-4'>
-                <div className='hover:border-2 hover:border-white border-2 border-transparent hover:cursor-pointer'> 
+                <Link to="/"><div className='hover:border-2 hover:border-white border-2 border-transparent hover:cursor-pointer'> 
                     <img src={`${logo}`} alt="" className='h-12' />
-                </div>
+                </div></Link>
+                
 
                 <div className='flex items-center hover:border-2 hover:border-white border-2 border-transparent hover:cursor-pointer'>
 
@@ -66,7 +69,7 @@ function Header() {
 
                     <div className='flex items-center justify-center gap-1 hover:border-2 hover:border-white border-2 border-transparent hover:cursor-pointer'>
                     <BsCart4 className='h-full' />
-                        <h3 className='text-xl'>Cart</h3>
+                        <h3 className='text-xl'><Link to ="/cart">Cart</Link></h3>
                     </div>
 
 

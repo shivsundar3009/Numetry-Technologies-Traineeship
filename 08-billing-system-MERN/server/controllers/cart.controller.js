@@ -5,8 +5,9 @@ import Product from '../models/product.model.js';
 export const addToCart = async (req, res) => {
   try {
     const { productId, quantity } = req.body;
-    const userId = req.user._id; // Assuming user is authenticated and user ID is available in req.user
 
+
+    console.log(productId,quantity)
     // Check if the product exists
     const product = await Product.findById(productId);
     if (!product) {
@@ -14,11 +15,11 @@ export const addToCart = async (req, res) => {
     }
 
     // Check if the user already has a cart
-    let cart = await Cart.findOne({ userId });
+    let cart = await Cart.findOne();
 
     // If the user doesn't have a cart, create a new one
     if (!cart) {
-      cart = new Cart({ userId, items: [] });
+      cart = new Cart({ items: [] });
     }
 
     // Check if the product is already in the cart
@@ -40,14 +41,12 @@ export const addToCart = async (req, res) => {
   }
 };
 
-// Update quantity of a product in the cart
 export const updateCartItem = async (req, res) => {
   try {
     const { productId, quantity } = req.body;
-    const userId = req.user._id;
 
-    // Find the user's cart
-    const cart = await Cart.findOne({ userId });
+    // Find the cart
+    let cart = await Cart.findOne();
 
     // Check if the cart exists
     if (!cart) {
@@ -76,10 +75,9 @@ export const updateCartItem = async (req, res) => {
 export const removeFromCart = async (req, res) => {
   try {
     const productId = req.params.productId;
-    const userId = req.user._id;
 
-    // Find the user's cart
-    const cart = await Cart.findOne({ userId });
+    // Find the cart
+    let cart = await Cart.findOne();
 
     // Check if the cart exists
     if (!cart) {
@@ -98,13 +96,28 @@ export const removeFromCart = async (req, res) => {
   }
 };
 
+// Get all items in the cart
+export const getAllCartItems = async (req, res) => {
+  try {
+    // Find the cart
+    let cart = await Cart.findOne();
+
+    // Check if the cart exists
+    if (!cart) {
+      return res.status(404).json({ message: 'Cart not found' });
+    }
+
+    res.status(200).json(cart.items);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 // Calculate total payable amount with 1.8% GST
 export const calculateTotalAmount = async (req, res) => {
   try {
-    const userId = req.user._id;
-
-    // Find the user's cart
-    const cart = await Cart.findOne({ userId });
+    // Find the cart
+    let cart = await Cart.findOne();
 
     // Check if the cart exists
     if (!cart) {

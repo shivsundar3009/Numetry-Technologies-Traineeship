@@ -23,5 +23,8 @@ app.listen(PORT, () => {
 import userRoutes from './routes/user.routes.js'
 app.use('',userRoutes)
 
-import productRoutes from './routes/user.routes.js'
+import productRoutes from './routes/product.routes.js'
 app.use('',productRoutes)
+
+import cartRoutes from "./routes/cart.routes.js"
+app.use('',cartRoutes)

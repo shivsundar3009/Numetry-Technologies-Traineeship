@@ -14,7 +14,8 @@ export const createProduct = async (req, res) => {
       ratings
     } = req.body;
 
-    const newProduct = new Product({
+    // Create a new product document using the create method
+    const savedProduct = await Product.create({
       category,
       name,
       previewImage,
@@ -23,9 +24,9 @@ export const createProduct = async (req, res) => {
       ratings
     });
 
-    const savedProduct = await newProduct.save();
     res.status(201).json(savedProduct);
   } catch (error) {
+    console.error("Error creating product:", error);
     res.status(500).json({ message: 'Internal server error' });
   }
 };
