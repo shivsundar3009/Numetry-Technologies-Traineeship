@@ -67,9 +67,9 @@ function Header() {
                         <h3>& Orders</h3>
                     </div>
 
-                    <div className='flex items-center justify-center gap-1 hover:border-2 hover:border-white border-2 border-transparent hover:cursor-pointer'>
-                    <BsCart4 className='h-full' />
-                        <h3 className='text-xl'><Link to ="/cart">Cart</Link></h3>
+                    <div className='flex items-center justify-center gap-1 hover:border-2 hover:border-white border-2 border-transparent hover:cursor-pointer '>
+                    
+                        <h3 className='text-xl p-1'><Link to ="/cart"><BsCart4 className='h-full ' /> Cart</Link></h3>
                     </div>
 
 

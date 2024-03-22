@@ -4,14 +4,11 @@ import Product from '../models/product.model.js';
 // Add a product to the cart
 export const addToCart = async (req, res) => {
   try {
-    const { productId, quantity } = req.body;
+    const { productId, name, image, price, quantity } = req.body;
 
-
-    console.log(productId,quantity)
-    // Check if the product exists
-    const product = await Product.findById(productId);
-    if (!product) {
-      return res.status(404).json({ message: 'Product not found' });
+    // Check if productId is provided
+    if (!productId) {
+      return res.status(400).json({ message: 'Product ID is required' });
     }
 
     // Check if the user already has a cart
@@ -29,7 +26,13 @@ export const addToCart = async (req, res) => {
       cart.items[existingItemIndex].quantity += quantity;
     } else {
       // If the product is not in the cart, add it
-      cart.items.push({ productId, quantity });
+      cart.items.push({ 
+        productId, 
+        name,
+        image,
+        price,
+        quantity
+      });
     }
 
     // Save the updated cart
@@ -40,6 +43,9 @@ export const addToCart = async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+// Update quantity of a cart item
+// import Cart from '../models/cart.model.js'; // Import your Cart model
 
 export const updateCartItem = async (req, res) => {
   try {
@@ -65,8 +71,12 @@ export const updateCartItem = async (req, res) => {
     // Save the updated cart
     await cart.save();
 
+    // Respond with the updated cart
+    console.log(cart)
     res.status(200).json(cart);
   } catch (error) {
+    // Handle any errors
+    console.error('Error updating cart item:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 };
@@ -127,10 +137,7 @@ export const calculateTotalAmount = async (req, res) => {
     // Calculate total amount without GST
     let totalAmount = 0;
     for (const item of cart.items) {
-      const product = await Product.findById(item.productId);
-      if (product) {
-        totalAmount += product.price * item.quantity;
-      }
+      totalAmount += item.price * item.quantity;
     }
 
     // Calculate GST amount (1.8% of total amount)

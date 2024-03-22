@@ -1,5 +1,8 @@
-const currencyConversionRates = {
-    "USD": {
+
+[
+  {
+    "fromCurrency": "USD",
+    "toCurrency": {
       "EUR": 0.84,
       "GBP": 0.72,
       "INR": 74.62,
@@ -10,8 +13,11 @@ const currencyConversionRates = {
       "CHF": 0.93,
       "NZD": 1.38,
       "KRW": 1130.16
-    },
-    "EUR": {
+    }
+  },
+  {
+    "fromCurrency": "EUR",
+    "toCurrency": {
       "USD": 1.19,
       "GBP": 0.86,
       "INR": 88.71,
@@ -22,8 +28,11 @@ const currencyConversionRates = {
       "CHF": 1.10,
       "NZD": 1.63,
       "KRW": 1336.23
-    },
-    "GBP": {
+    }
+  },
+  {
+    "fromCurrency": "GBP",
+    "toCurrency": {
       "USD": 1.38,
       "EUR": 1.16,
       "INR": 102.82,
@@ -34,8 +43,11 @@ const currencyConversionRates = {
       "CHF": 1.28,
       "NZD": 1.90,
       "KRW": 1555.12
-    },
-    "INR": {
+    }
+  },
+  {
+    "fromCurrency": "INR",
+    "toCurrency": {
       "USD": 0.013,
       "EUR": 0.011,
       "GBP": 0.010,
@@ -46,8 +58,11 @@ const currencyConversionRates = {
       "CHF": 0.012,
       "NZD": 0.018,
       "KRW": 15.06
-    },
-    "AUD": {
+    }
+  },
+  {
+    "fromCurrency": "AUD",
+    "toCurrency": {
       "USD": 0.78,
       "EUR": 0.65,
       "GBP": 0.56,
@@ -58,8 +73,11 @@ const currencyConversionRates = {
       "CHF": 0.72,
       "NZD": 1.07,
       "KRW": 877.20
-    },
-    "CAD": {
+    }
+  },
+  {
+    "fromCurrency": "CAD",
+    "toCurrency": {
       "USD": 0.79,
       "EUR": 0.67,
       "GBP": 0.58,
@@ -70,8 +88,11 @@ const currencyConversionRates = {
       "CHF": 0.73,
       "NZD": 1.08,
       "KRW": 887.68
-    },
-    "JPY": {
+    }
+  },
+  {
+    "fromCurrency": "JPY",
+    "toCurrency": {
       "USD": 0.0091,
       "EUR": 0.0077,
       "GBP": 0.0066,
@@ -82,8 +103,11 @@ const currencyConversionRates = {
       "CHF": 0.0084,
       "NZD": 0.012,
       "KRW": 10.26
-    },
-    "CNY": {
+    }
+  },
+  {
+    "fromCurrency": "CNY",
+    "toCurrency": {
       "USD": 0.15,
       "EUR": 0.13,
       "GBP": 0.11,
@@ -94,8 +118,11 @@ const currencyConversionRates = {
       "CHF": 0.14,
       "NZD": 0.21,
       "KRW": 177.04
-    },
-    "CHF": {
+    }
+  },
+  {
+    "fromCurrency": "CHF",
+    "toCurrency": {
       "USD": 1.08,
       "EUR": 0.91,
       "GBP": 0.78,
@@ -106,8 +133,11 @@ const currencyConversionRates = {
       "CNY": 7.03,
       "NZD": 1.48,
       "KRW": 1216.04
-    },
-    "NZD": {
+    }
+  },
+  {
+    "fromCurrency": "NZD",
+    "toCurrency": {
       "USD": 0.72,
       "EUR": 0.60,
       "GBP": 0.52,
@@ -118,6 +148,6 @@ const currencyConversionRates = {
       "CNY": 4.71,
       "CHF": 0.68,
       "KRW": 819.20
-    },
-    // Add more currencies and their conversion rates here...
-  };
+    }
+  }
+]
