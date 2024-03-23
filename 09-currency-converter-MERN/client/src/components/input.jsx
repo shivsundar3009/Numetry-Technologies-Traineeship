@@ -4,7 +4,7 @@ function Input({
   amount,
   onAmountChange,
   amountDisabled = false,
-  selectCurrency='inr',
+  selectCurrency='USD',
   onCurrencyChange,
   label,
   currencyOptions,
@@ -36,7 +36,7 @@ function Input({
 
           <p>Curreny Type</p>
           <select 
-          className='bg-gray-600'
+          className='bg-gray-600 p-1 rounded'
           name='currency'
           id='currency'
           value={selectCurrency}
@@ -47,7 +47,7 @@ function Input({
             {
               currencyOptions.map(
                (currency) => (
-                <option value={currency} key={currency}>{currency}</option> 
+                <option value={currency} key={currency}>{currency}</option > 
                )
               )
             }

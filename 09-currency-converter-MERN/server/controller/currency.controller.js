@@ -26,16 +26,25 @@ export const convertCurrency = async (req, res) => {
 export const addConversion = async (req, res) => {
   try {
     const { fromCurrency, toCurrency } = req.body;
+
+    // Check if the fromCurrency already exists in the database
+    const existingConversion = await CurrencyConversion.findOne({ fromCurrency });
+
+    if (existingConversion) {
+      return res.status(400).json({ message: "Currency already exists. Please update the existing conversion rate." });
+    }
+
+    // If the fromCurrency doesn't exist, create a new conversion entry
     const conversionData = new CurrencyConversion({
       fromCurrency,
       toCurrency
     });
 
     await conversionData.save();
-    res.status(201).json({ message: "Conversion rate added successfully" });
+    return res.status(201).json({ message: "Conversion rate added successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Server error" });
+    return res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -46,6 +55,25 @@ export const getAllConversions = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const getCurrencyConversion = async (req, res) => {
+  const { fromCurrency } = req.params; // Assuming fromCurrency is passed as a parameter
+
+  try {
+    // Finding the currency conversion object based on fromCurrency
+    const currencyConversion = await CurrencyConversion.findOne({ fromCurrency });
+
+    if (!currencyConversion) {
+      return res.status(404).json({ message: 'Currency conversion not found for the provided fromCurrency.' });
+    }
+
+    // Returning the toCurrency object
+    return res.status(200).json(currencyConversion.toCurrency);
+  } catch (error) {
+    console.error('Error fetching currency conversion:', error);
+    return res.status(500).json({ message: 'Internal server error' });
   }
 };
 

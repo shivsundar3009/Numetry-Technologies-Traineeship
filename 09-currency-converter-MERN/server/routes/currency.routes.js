@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllConversions, addConversion, convertCurrency, updateConversion, deleteConversionRate } from '../controller/currency.controller.js';
+import { getCurrencyConversion, getAllConversions, addConversion, convertCurrency, updateConversion, deleteConversionRate } from '../controller/currency.controller.js';
 
 const router = express.Router();
 
@@ -10,7 +10,9 @@ router.post('/add', addConversion); // Add new conversion rate
 
 router.put('/update', updateConversion); // Update existing conversion rate
 
-router.get('/allconversions', getAllConversions);
+router.get('/allconversions/', getAllConversions);
+
+router.get('/getCurrencyConversion/:fromCurrency', getCurrencyConversion);
 // Routes for deleting conversion rates
 router.delete('/delete-rate', deleteConversionRate);
 
