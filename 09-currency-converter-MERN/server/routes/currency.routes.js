@@ -14,6 +14,6 @@ router.get('/allconversions/', getAllConversions);
 
 router.get('/getCurrencyConversion/:fromCurrency', getCurrencyConversion);
 // Routes for deleting conversion rates
-router.delete('/delete-rate', deleteConversionRate);
+router.delete('/delete', deleteConversionRate);
 
 export default router;

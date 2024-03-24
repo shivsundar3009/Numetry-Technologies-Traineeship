@@ -1,35 +1,45 @@
-import { useState, useEffect } from "react";
-import usecurrencyInfo from "./hooks/usecurrencyInfo";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import useCurrencyInfo from "./hooks/usecurrencyInfo.js";
 import { Input } from "./components/index";
 
 function App() {
   const [amount, setAmount] = useState(0);
-  const [from, setFrom] = useState('INR');
-  const [to, setTo] = useState('USD');
-  const [options, setOptions] = useState([]);
+  const [convertedAmount, setConvertedAmount] = useState(0);
+  const [from, setFrom] = useState("USD");
+  const [to, setTo] = useState("INR");
+  const data = useCurrencyInfo(from);
 
-  const data = usecurrencyInfo(from);
-
-  useEffect(() => {
-    // Check if data has been fetched and set options accordingly
-    if (Object.keys(data).length > 0) {
-      setOptions(Object.keys(data));
-    }
-  }, [data]);
+  const [options, setOptions] = useState([])
+  // const options = Object.keys(data);
 
   useEffect(() => {
-    // Set default value for 'from' state when options are available
-    if (options.length > 0 && !from) {
-      setFrom(options[0]);
+    if (data) {
+      setOptions(Object.keys(data)); // Update currency options when data changes
     }
-  }, [options, from]);
+  }, [data])
 
   const handleFromCurrencyChange = (currency) => {
+    console.log(currency);
     setFrom(currency);
   };
 
   const handleToCurrencyChange = (currency) => {
+    console.log(currency);
     setTo(currency);
+  };
+
+  const convertCurrency = async () => {
+    try {
+      const response = await axios.post("http://localhost:3000/convert", {
+        fromCurrency: from,
+        toCurrency: to,
+        amount: amount,
+      });
+      setConvertedAmount(response.data.convertedAmount);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -44,17 +54,21 @@ function App() {
               currencyOptions={options}
               onAmountChange={setAmount}
               onCurrencyChange={handleFromCurrencyChange}
+              selectCurrency={from}
             />
             <Input
               label="To"
+              amount={convertedAmount}
               currencyOptions={options}
               onCurrencyChange={handleToCurrencyChange}
+              selectCurrency={to}
             />
           </div>
           <div>
             <button
               type="button"
               className="bg-blue-500 p-3 rounded-lg border-2 border-transparent hover:bg-white hover:text-blue-500 hover:border-blue-500"
+              onClick={convertCurrency}
             >
               CONVERT
             </button>
@@ -66,3 +80,7 @@ function App() {
 }
 
 export default App;
+
+
+
+

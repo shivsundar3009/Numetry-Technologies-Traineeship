@@ -4,7 +4,7 @@ function Input({
   amount,
   onAmountChange,
   amountDisabled = false,
-  selectCurrency='USD',
+  selectCurrency,
   onCurrencyChange,
   label,
   currencyOptions,

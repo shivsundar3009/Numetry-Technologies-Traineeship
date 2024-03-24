@@ -100,17 +100,14 @@ export const updateConversion = async (req, res) => {
 // Controller logic to delete conversion rates for a currency
 export const deleteConversionRate = async (req, res) => {
   try {
-    const { fromCurrency, toCurrency } = req.body;
-    const conversionData = await CurrencyConversion.findOne({ fromCurrency });
+    const { fromCurrency } = req.body; // Only need fromCurrency to delete the entire currency conversion
+    const conversionData = await CurrencyConversion.findOneAndDelete({ fromCurrency });
 
     if (!conversionData) {
       return res.status(404).json({ message: "Conversion data not found" });
     }
 
-    conversionData.toCurrency.delete(toCurrency);
-    await conversionData.save();
-
-    res.status(200).json({ message: "Conversion rate deleted successfully" });
+    res.status(200).json({ message: "Conversion data deleted successfully" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
