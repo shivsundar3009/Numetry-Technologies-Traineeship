@@ -22,7 +22,7 @@ function App() {
   const handleFromCurrencyChange = (currency) => {
     console.log(currency);
     setFrom(currency);
-  };
+  };``
 
   const handleToCurrencyChange = (currency) => {
     console.log(currency);
