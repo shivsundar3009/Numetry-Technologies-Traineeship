@@ -19,3 +19,6 @@ app.get('/',(req,res) => {
 app.listen(PORT, () => {
     console.log('server is running at port 3000')
 })
+
+import parkingnRoutes from "./routes/parkingLot.route.js"
+app.use("",parkingnRoutes)

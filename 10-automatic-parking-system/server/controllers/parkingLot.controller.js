@@ -1,4 +1,4 @@
-import ParkingLot from '../models/ParkingLot';
+import ParkingLot from '../models/parkingLot.model.js';
 
 export const getAllParkingLots = async (req, res) => {
     try {
