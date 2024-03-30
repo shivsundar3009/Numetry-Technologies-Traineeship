@@ -9,17 +9,14 @@ import Registration from './components/Registration.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path='/' element= {App}/>
-      {/* <Route path='/login' element= {Login}/>
-      <Route path='/registration' element= {Registration}/> */}
+      <Route path='/' element= {<App/>}/>
+      <Route path='/login' element= {<Login/>}/>
+      <Route path='/registration' element= {<Registration/>}/>
     </Route>
   )
 )
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider>
-      <Router router = {router}/>
-    </RouterProvider>
-  </React.StrictMode>,
+  
+ < RouterProvider router = {router} />
 )

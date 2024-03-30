@@ -1,5 +1,6 @@
 // Header.js
 import img from "../assets/logo.png"
+import { Link } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6"
 
 import React from 'react';
@@ -31,8 +32,8 @@ const Header = () => {
 
             {/* Login and Signup */}
             <div>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded mr-4">Login</button>
-                <button className="bg-green-500 text-white px-4 py-2 rounded">Signup</button>
+                <button className="bg-blue-500 text-white px-4 py-2 rounded mr-4"> <Link to = "/login"> Login</Link> </button>
+                <button className="bg-green-500 text-white px-4 py-2 rounded"><Link to = "/registration"> SignUP</Link> </button>
             </div>
         </header>
     );

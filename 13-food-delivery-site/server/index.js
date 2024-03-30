@@ -23,3 +23,11 @@ app.listen(PORT, () => {
 
 import cityRoutes from './routes/city.routes.js'
 app.use('/api/v2', cityRoutes)
+
+
+import restaurantRoutes from './routes/restaurant.routes.js'
+app.use('/api/v3', restaurantRoutes)
+
+
+import dishRoutes from './routes/dish.routes.js'
+app.use('/api/v4', dishRoutes)
