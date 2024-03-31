@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const restaurantSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  city: { type: mongoose.Schema.Types.ObjectId, ref: 'City', required: true },
+  city: { type: String, required: true }, // Change the type to String
   overallRating: { type: Number, default: 0 },
   categories: [{ type: String }],
   dishes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Dish' }],
@@ -11,4 +11,4 @@ const restaurantSchema = new mongoose.Schema({
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
-export default Restaurant;
+export default Restaurant

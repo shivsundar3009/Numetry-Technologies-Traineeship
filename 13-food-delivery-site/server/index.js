@@ -20,11 +20,6 @@ app.listen(PORT, () => {
     console.log('server is running at port 3000')
 })
 
-
-import cityRoutes from './routes/city.routes.js'
-app.use('/api/v2', cityRoutes)
-
-
 import restaurantRoutes from './routes/restaurant.routes.js'
 app.use('/api/v3', restaurantRoutes)
 

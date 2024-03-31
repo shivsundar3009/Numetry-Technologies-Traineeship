@@ -1,3 +1,5 @@
+import Dish from "../models/dish.model.js";
+
 const dishController = {
     getAllDishes: async (req, res) => {
       try {
@@ -9,13 +11,14 @@ const dishController = {
     },
   
     createDish: async (req, res) => {
-      const { name, price, rating, category } = req.body;
+      const { name, price, rating, category, image } = req.body;
       try {
         const newDish = new Dish({
           name,
           price,
           rating,
-          category
+          category,
+          image // Add the image field here
         });
         const savedDish = await newDish.save();
         res.status(201).json(savedDish);
