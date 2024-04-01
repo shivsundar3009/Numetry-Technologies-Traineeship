@@ -1,3 +1,4 @@
+import DishComponent from "./components/Dishes"
 import Header from "./components/Header"
 
 function App() {
@@ -6,6 +7,8 @@ function App() {
    <>
 
    <Header />
+
+   <DishComponent/>
 
    
 
