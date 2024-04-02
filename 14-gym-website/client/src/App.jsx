@@ -1,3 +1,7 @@
+import Header from "./components/Header"
+import Slider from "./components/Slider"
+import Footer from "./components/Footer"
+import OurPrograms from "./components/OurPrograms"
 
 
 function App() {
@@ -5,7 +9,10 @@ function App() {
   return (
    <>
 
-   <h1 className="text-5xl">GYM Website</h1>
+   <Header/>
+   <Slider />
+   <OurPrograms />
+   <Footer/>
    
    </>
   )
