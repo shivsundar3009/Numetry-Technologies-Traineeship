@@ -19,9 +19,6 @@ const userSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    ageGroup: {
-        type: String,
-    },
     role: {
         type: String,
         enum: ['user', 'admin'],

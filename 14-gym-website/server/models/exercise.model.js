@@ -36,7 +36,7 @@ const exerciseSchema = new mongoose.Schema({
                 type: String
             }
         }
-    ]
+    ],
 });
 
 const Exercise = mongoose.model('Exercise', exerciseSchema);

@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import loginImage from "../assets/login.jpg";
 import Header from './Header';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
+
+  const navigate = useNavigate();
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,11 +19,17 @@ const Login = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/login', formData); // Change the API endpoint accordingly
-      console.log(response.data); // Handle success response accordingly
+      const response = await axios.post('http://localhost:3000/api/v1/login', formData);
+      console.log(response.data);
+      if (response.data.role === 'user') {
+        navigate('/user'); // Navigate to the user dashboard if the role is user
+      } else if (response.data.role === 'admin') {
+        navigate('/admin'); // Navigate to the admin dashboard if the role is admin
+      } else {
+        console.error('Invalid role:', response.data.role);
+      }
     } catch (error) {
       console.error('Login error:', error);
-      // Handle error response accordingly
     }
   };
 

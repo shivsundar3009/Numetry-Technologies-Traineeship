@@ -1,10 +1,10 @@
 import express from 'express';
-import { createDietPlan, getDietPlans, getDietPlanById, updateDietPlan, deleteDietPlan } from '../controllers/dietPlanController';
+import { createDietPlan, getDietPlans, getDietPlanById, updateDietPlan, deleteDietPlan } from '../controllers/dietPlan.controllers.js';
 
 const router = express.Router();
 
 // Create a new diet plan
-router.post('/', createDietPlan);
+router.post('/create', createDietPlan);
 
 // Get all diet plans
 router.get('/', getDietPlans);

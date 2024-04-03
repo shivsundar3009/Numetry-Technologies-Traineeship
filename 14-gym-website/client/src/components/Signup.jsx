@@ -8,6 +8,7 @@ const Signup = () => {
     username: '',
     email: '',
     password: '',
+    age: 0,
     role: 'user' // Default role is set to 'user'
   });
 
@@ -17,8 +18,9 @@ const Signup = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    console.log(formData)
     try {
-      const response = await axios.post('/api/signup', formData); // Change the API endpoint accordingly
+      const response = await axios.post('http://localhost:3000/api/v1/users', formData); // Change the API endpoint accordingly
       console.log(response.data); // Handle success response accordingly
     } catch (error) {
       console.error('Signup error:', error);
@@ -52,6 +54,10 @@ const Signup = () => {
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">Password:</label>
           <input type="password" name="password" value={formData.password} onChange={handleChange} className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="age">Age:</label>
+          <input type="number" name="age" value={formData.age} onChange={handleChange} className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="role">Role:</label>

@@ -1,10 +1,10 @@
-import Exercise from '../models/Exercise';
+import Exercise from '../models/exercise.model.js';
 
 // Create a new exercise plan
 export const createExercisePlan = async (req, res) => {
     try {
         const { name, description, ageGroup, exercises } = req.body;
-        const newExercisePlan = new Exercise({ name, description, ageGroup, exercises });
+        const newExercisePlan = new Exercise({ name, description, ageGroup, exercises});
         await newExercisePlan.save();
         res.status(201).json(newExercisePlan);
     } catch (error) {

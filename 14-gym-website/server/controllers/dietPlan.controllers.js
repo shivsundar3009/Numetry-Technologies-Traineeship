@@ -1,4 +1,4 @@
-import DietPlan from '../models/DietPlan';
+import DietPlan from '../models/dietPlan.model.js';
 
 // Create a new diet plan
 export const createDietPlan = async (req, res) => {

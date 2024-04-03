@@ -11,19 +11,15 @@ export const createUser = async (req, res) => {
             return res.status(400).json({ message: 'All required fields must be provided' });
         }
 
-        let ageGroup;
-        if (age < 18) {
-            ageGroup = "Children";
-        } else if (age >= 18 && age <= 50) {
-            ageGroup = "Adult";
-        } else {
-            ageGroup = "Older";
+        // Check if user is above 16 years old
+        if (age < 16) {
+            return res.status(400).json({ message: 'User must be at least 16 years old to register' });
         }
 
         // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const newUser = new User({ username, email, password: hashedPassword, age, ageGroup, role });
+        const newUser = new User({ username, email, password: hashedPassword, age, role });
         await newUser.save();
         res.status(201).json(newUser);
     } catch (error) {
@@ -33,21 +29,15 @@ export const createUser = async (req, res) => {
 
 export const loginUser = async (req, res) => {
     try {
-        const { username, email, password } = req.body;
+        const { email, password } = req.body;
 
-        // Check if username/email and password are provided
-        if ((!username && !email) || !password) {
-            return res.status(400).json({ message: 'Username/email and password are required' });
+        // Check if email and password are provided
+        if (!email || !password) {
+            return res.status(400).json({ message: 'Email and password are required' });
         }
 
-        let user;
-        if (username) {
-            // Find user by username
-            user = await User.findOne({ username });
-        } else {
-            // Find user by email
-            user = await User.findOne({ email });
-        }
+        // Find user by email
+        const user = await User.findOne({ email });
 
         // Check if user exists
         if (!user) {
@@ -61,13 +51,12 @@ export const loginUser = async (req, res) => {
             return res.status(401).json({ message: 'Invalid password' });
         }
 
-        // If user exists and passwords match, return user data and success message
-        res.status(200).json({ message: 'User logged in successfully', user });
+        // If user exists and passwords match, return true in the response
+        res.status(200).json(user);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
-
 
 export const updateUser = async (req, res) => {
     const { id } = req.params;

@@ -1,10 +1,10 @@
 import express from 'express';
-import { createExercisePlan, getExercisePlans, getExercisePlanById, updateExercisePlan, deleteExercisePlan } from '../controllers/exerciseController';
+import { createExercisePlan, getExercisePlans, getExercisePlanById, updateExercisePlan, deleteExercisePlan } from '../controllers/exercise.controllers.js';
 
 const router = express.Router();
 
 // Create a new exercise plan
-router.post('/', createExercisePlan);
+router.post('/create', createExercisePlan);
 
 // Get all exercise plans
 router.get('/', getExercisePlans);

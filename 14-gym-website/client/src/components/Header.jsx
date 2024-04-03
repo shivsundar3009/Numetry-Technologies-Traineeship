@@ -50,14 +50,16 @@ function Header() {
         <Link to="/" ><img src={logo} alt="" className='h-16'/></Link>
 
         <div className='hover:text-yellow-300 hover:bg-white border-2 border-transparent hover:border-yellow-300 font-bold bg-yellow-300 p-2 rounded-lg'>
-          <Link><button className=''>JOIN TODAY</button></Link>
+          <Link><button className=''><Link to="/signup">JOIN TODAY</Link></button></Link>
         </div>
 
 
-        <div>
-          <Link to="/login" className="mr-4 hover:text-yellow-300 hover:bg-white border-2 border-transparent hover:border-yellow-300 font-bold bg-yellow-300 p-2 rounded-lg">Login</Link>
+        <div className=' flex gap-5'>
+          <Link to="/login" className=" hover:text-yellow-300 hover:bg-white border-2 border-transparent hover:border-yellow-300 font-bold bg-yellow-300 p-2 rounded-lg">Login</Link>
 
           <Link to="/signup" className="hover:text-yellow-300 hover:bg-white border-2 border-transparent hover:border-yellow-300 font-bold bg-yellow-300 p-2 rounded-lg">Sign Up</Link>
+
+          <Link to="/contact" className="hover:text-yellow-300 hover:bg-white border-2 border-transparent hover:border-yellow-300 font-bold bg-yellow-300 p-2 rounded-lg">Contact US</Link>
 
         </div>
       </div>

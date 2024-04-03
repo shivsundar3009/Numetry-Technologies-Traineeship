@@ -23,3 +23,12 @@ app.listen(PORT, () => {
 
 import userRoutes from "./routes/user.routes.js"
 app.use('/api/v1',userRoutes)
+
+import dietPlanRoutes from "./routes/dietPlan.routes.js"
+app.use('/api/v2',dietPlanRoutes)
+
+import exerciseRoutes from "./routes/exercise.routes.js"
+app.use('/api/v3',exerciseRoutes)
+
+import gymMembershipRoutes from "./routes/gymMembership.routes.js"
+app.use('/api/v3',gymMembershipRoutes)
