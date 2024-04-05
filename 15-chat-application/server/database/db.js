@@ -1,9 +1,12 @@
 import mongoose from "mongoose";
 
+import dotenv from 'dotenv'
+dotenv.config()
+
 export const ConnectDB = async () => {
     try {
           
-        await mongoose.connect('mongodb://127.0.0.1:27017/shivFIVE')
+        await mongoose.connect(process.env.MONGODB_URI)
 
         console.log('db connection successfull')
         
