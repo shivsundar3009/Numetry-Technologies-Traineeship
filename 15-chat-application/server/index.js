@@ -23,4 +23,6 @@ app.listen(PORT, () => {
     console.log('server is running at port 8000')
 })
 
+import userRoutes from "./routes/user.routes.js"
+app.use('/api/v1',userRoutes)
 
