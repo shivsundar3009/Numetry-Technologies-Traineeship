@@ -1,6 +1,8 @@
 import {User} from "../models/user.model.js"
 import bcrypt from "bcrypt"
 
+import { generateToken } from "../utils/jsonwebtoken.js"
+
 const signUP = async (req,res) => {
     
     try {
@@ -70,7 +72,8 @@ const login = async (req,res) => {
     if(!comparePassword) {
      return res.send("password did not matched")
     } 
-        
+    
+    generateToken(user._id,res)
 
     return res.status(200).send("logged in successfully")
 
@@ -81,5 +84,17 @@ const login = async (req,res) => {
    }
 }
 
+const logout = async (req,res) =>{
 
-export {signUP, login}
+    try {
+
+        res.cookie("jwt","",{maxAge: 0})
+        res.send('logged out successfully')
+        
+    } catch (error) {
+        return res.status(400).send({message:"error in logout",error})
+    }
+}
+
+
+export {signUP, login, logout}

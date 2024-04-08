@@ -7,6 +7,10 @@ dotenv.config()
 
 const app = express()
 
+import cookieparser from "cookie-parser"
+app.use(cookieparser())
+
+
 app.use(cors())
 
 app.use(express.json())
@@ -25,4 +29,9 @@ app.listen(PORT, () => {
 
 import userRoutes from "./routes/user.routes.js"
 app.use('/api/v1',userRoutes)
+
+
+import messageRoutes from "./routes/message.routes.js"
+import cookieParser from "cookie-parser"
+app.use('/api/v2',messageRoutes)
 
