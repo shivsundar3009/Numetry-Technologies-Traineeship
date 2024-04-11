@@ -1,3 +1,5 @@
+import { Header, NotesList} from "./components"
+
 
 
 function App() {
@@ -5,7 +7,11 @@ function App() {
   return (
    <>
 
-   <h1 className="text-5xl">Notes Manager With Password</h1>
+
+   <Header/>
+
+   <NotesList/>
+
    
    </>
   )
