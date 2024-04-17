@@ -19,3 +19,10 @@ app.get('/',(req,res) => {
 app.listen(PORT, () => {
     console.log('server is running at port 3000')
 })
+
+
+import userRoutes from "./routes/user.routes.js"
+app.use("/user",userRoutes)
+
+import eventRoutes from "./routes/user.routes.js"
+app.use("/event",eventRoutes)

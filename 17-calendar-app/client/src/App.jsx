@@ -19,29 +19,29 @@ const MyCalendar = () => {
   };
 
   const handleSelectSlot = ({ start, end }) => {
-    if (moment(start).isSame(end, 'day')) {
-      // If start and end are on the same day, create event for that single day
-      setShowPopup(true);
-      setPopupDates({ start, end });
-    } else {
-      // If start and end span multiple days, create a single event for the range
-      setShowPopup(true);
-      setPopupDates({ start, end: moment(end).subtract(1, 'day').toDate() });
-    }
+    // Adjust the end time to include the selected end day
+    const adjustedEnd = end ? moment(end).toDate() : moment(start).add(1, 'hour').toDate();
+    
+    setShowPopup(true);
+    setPopupDates({ start, end: adjustedEnd });
   };
+  
+  
 
   const handleAddEvent = () => {
     const { start, end } = popupDates;
+  
+    console.log(start,end)
     const newEvent = {
       id: uuidv4(),
       title: eventTitle,
       start,
-      end: moment(start).add(1, 'hour').toDate(),
+      end: end || moment(start).add(1, 'hour').toDate(), // Use the provided end date if available, else add 1 hour
     };
-
+  
     // Update events list
     setMyEventsList([...myEventsList, newEvent]);
-
+  
     // Close the popup and reset event title input
     setShowPopup(false);
     setEventTitle("");
