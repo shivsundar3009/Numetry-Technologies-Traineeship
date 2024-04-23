@@ -19,3 +19,7 @@ app.get('/',(req,res) => {
 app.listen(PORT, () => {
     console.log('server is running at port 3000')
 })
+
+
+import weatherRoutes from "./routes/weather.routes.js"
+app.use("/weather",weatherRoutes)
