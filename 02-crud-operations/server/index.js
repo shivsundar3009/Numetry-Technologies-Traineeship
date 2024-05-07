@@ -1,7 +1,7 @@
 import Express  from "express";
 import Mongoose from "mongoose";
 import cors  from "cors";
-import { User } from "./Models/user.model";
+import { User } from "./Models/user.model.js";
 
 const app = Express()
 

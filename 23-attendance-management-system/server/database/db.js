@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 export const ConnectDB = async () => {
     try {
           
-        await mongoose.connect('mongodb://127.0.0.1:27017/chatApplication')
+        await mongoose.connect('mongodb://127.0.0.1:27017/attendance-management')
 
         console.log('db connection successfull')
         
