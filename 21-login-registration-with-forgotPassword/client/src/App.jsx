@@ -1,5 +1,6 @@
 import React from 'react'
-import {Login} from './components/login'
+import Login from './components/Login'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
     <div>BASE App</div>
 
     <Login/>
+
+    <Footer/>
     
     </>
     
