@@ -20,27 +20,31 @@ app.listen(PORT, () => {
     console.log('server is running at port 3000')
 })
 
-// import User from "./models/user.model.js"
-// const createAdminAccount = async () => {
-//     try {
-//       const admin = await User.findOne({ role: 'admin' });
-//       if (!admin) {
-//         const newAdmin = new User({
-//           fullName: 'Admin',
-//           username: 'admin',
-//           email: 'admin@gmail.com',
-//           password: 'Admin@123',
-//           role: 'admin'
-//         });
-//         await newAdmin.save();
-//         console.log('Admin account created successfully');
-//       } else {
-//         console.log('Admin account already exists');
-//       }
-//     } catch (error) {
-//       console.error('Error creating admin account:', error);
-//     }
-//   };
+import Admin from "./models/admin.model.js";
+
+const createAdminAccount = async () => {
+  try {
+    const admin = await Admin.findOne({ role: 'admin' });
+    if (!admin) {
+      const newAdmin = new Admin({
+        fullName: 'Admin',
+        userName: 'admin',
+        email: 'admin@gmail.com',
+        password: 'Admin@123',
+        role: 'admin'
+      });
+      await newAdmin.save();
+      console.log('Admin account created successfully');
+    } else {
+      console.log('Admin account already exists');
+    }
+  } catch (error) {
+    console.error('Error creating admin account:', error);
+  }
+};
+
+createAdminAccount();
+
   
   
   // Check for admin account on server start
