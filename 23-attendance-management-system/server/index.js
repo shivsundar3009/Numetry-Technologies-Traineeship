@@ -45,14 +45,17 @@ const createAdminAccount = async () => {
 
 createAdminAccount();
 
-  
-  
-  // Check for admin account on server start
-  // createAdminAccount();
+import adminRoutes from "./routes/admin.routes.js"
+app.use("/admin",adminRoutes)
 
+import staffRoutes from "./routes/staff.routes.js"
+app.use("/staff",staffRoutes)
 
-// import userRoutes from "./routes/user.routes.js"
-// app.use("/api/v1",userRoutes)
+import studentRoutes from "./routes/student.routes.js"
+app.use("/student",studentRoutes)
 
-// import attendanceRoutes from "./routes/attendance.routes.js"
-// app.use("/api/v2",attendanceRoutes)
+import parentRoutes from "./routes/parent.routes.js"
+app.use("/parent",parentRoutes)
+
+import attendanceRoutes from "./routes/attendance.routes.js"
+app.use("/attendance",attendanceRoutes)
