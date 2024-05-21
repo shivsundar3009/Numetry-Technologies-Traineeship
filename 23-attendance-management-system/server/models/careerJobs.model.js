@@ -11,6 +11,14 @@ const careerJobSchema = new Schema({
   salary: {
     type: Number,
     required: true
+  },
+  requirements: {
+    type: Number,
+    required: true
+  },
+  location: {
+    type: String,
+    required: true
   }
 }, { timestamps: true });
 

@@ -1,14 +1,24 @@
 // routes/attendanceRoutes.js
 import express from 'express';
-import { createAttendance, getAllAttendance, getAttendanceById, updateAttendanceById, deleteAttendanceById } from '../controllers/attendance.controllers.js';
+import {
+  createStudentAttendance,
+  createStaffAttendance,
+  getAllAttendance,
+  getStudentAttendance,
+  getStaffAttendance
+} from '../controllers/attendance.controllers.js';
 
 const router = express.Router();
 
-// Routes for Attendance CRUD operations
-router.post('/', createAttendance); // Create new attendance record
-router.get('/', getAllAttendance); // Get all attendance records
-router.get('/:id', getAttendanceById); // Get attendance record by ID
-router.put('/:id', updateAttendanceById); // Update attendance record by ID
-router.delete('/:id', deleteAttendanceById); // Delete attendance record by ID
+// Routes for student attendance
+router.post('/students', createStudentAttendance);
+router.get('/students/:studentId', getStudentAttendance);
+
+// Routes for staff attendance
+router.post('/staff', createStaffAttendance);
+router.get('/staff/:staffId', getStaffAttendance);
+
+// Route to get all attendance records
+router.get('/', getAllAttendance);
 
 export default router;

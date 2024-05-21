@@ -32,7 +32,11 @@ const staffSchema = new Schema({
   salary: {
     type: Number,
     required: true
-  }
+  },
+  attendance: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Attendance'
+  }]
 }, { timestamps: true });
 
 const Staff = model('Staff', staffSchema);

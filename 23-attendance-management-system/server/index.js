@@ -59,3 +59,10 @@ app.use("/parent",parentRoutes)
 
 import attendanceRoutes from "./routes/attendance.routes.js"
 app.use("/attendance",attendanceRoutes)
+
+import careerJobsRoutes from "./routes/careerJobs.routes.js"
+app.use("/careerJobs",careerJobsRoutes)
+
+import institutionRoutes from "./routes/institution.routes.js"
+app.use("/institution",institutionRoutes)
+

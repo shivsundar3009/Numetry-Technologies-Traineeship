@@ -7,17 +7,20 @@ const attendanceSchema = new Schema({
   studentId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Student',
-    required: true
+  },
+  staffId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Staff',
   },
   date: {
     type: Date,
-    required: true
+    required: true,
   },
   status: {
     type: String,
     enum: ['Present', 'Absent'],
-    required: true
-  }
+    required: true,
+  },
 }, { timestamps: true });
 
 const Attendance = model('Attendance', attendanceSchema);
