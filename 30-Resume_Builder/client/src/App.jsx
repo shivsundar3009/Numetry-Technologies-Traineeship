@@ -1,5 +1,6 @@
 import React from 'react'
 import ForgotPassword from './components/ForgotPassword'
+import HomePage from './components/HomePage'
 
 function App() {
   return (
@@ -7,6 +8,8 @@ function App() {
   
 
     <ForgotPassword/>
+
+    <HomePage/>
     
     
     </>
